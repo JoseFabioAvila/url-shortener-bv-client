@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TopHundredComponent } from './top-hundred/top-hundred.component';
+import { CreateUrlComponent } from './create-url/create-url.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TopHundredComponent,
+    CreateUrlComponent
   ],
   imports: [
     BrowserModule,
