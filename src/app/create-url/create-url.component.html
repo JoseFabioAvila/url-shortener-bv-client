@@ -12,7 +12,7 @@
 
 <div class="container">
     <div [hidden]="showSuccess">
-        <h3 class="mt-5">New shortered URL</h3>
+        <h1 class="mt-5">New shortered URL</h1>
         <form [formGroup]="urlForm" (ngSubmit)="submitForm()" novalidate>
             <div class="form-group">
                 <input type="url" formControlName="full_url" class="form-control" placeholder="URL to short..." required>

@@ -21,24 +21,17 @@ export class TopHundredComponent implements OnInit {
   getTop100() {
     return this.urlService.GetTop100().subscribe(data => {
       if (data.status === 'success') {
-        this.urls = data.urls;
+        for (const url of (data.urls as any)) {
+          this.urls.push({
+            title: url.title,
+            full_url: url.full_url,
+            short_code: url.short_code,
+            short_url: 'http://localhost:3000/' + url.short_code,
+            click_count: url.click_count
+          });
+        }
       }
     });
-    // this.urlService.GetTop100()
-    //   .subscribe(response => {
-    //     console.log(response);
-    //     // if (response.status === 'success') {
-    //     //   for (const d of (response.urls as any)) {
-    //     //     this.urls.push({
-    //     //       title: d.title,
-    //     //       full_url: d.full_url,
-    //     //       short_code: d.short_code,
-    //     //       click_count: d.click_count
-    //     //     });
-    //     //   }
-    //     //   console.log(this.urls);
-    //     // }
-    //   });
   }
 
 }

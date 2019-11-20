@@ -42,7 +42,9 @@ export class CreateUrlComponent implements OnInit {
   }
 
   refresh($event) {
-    console.log('clear');
+    this.urlForm.reset();
+    this.showSuccess = false;
+    this.showError   = false;
   }
 
 }
