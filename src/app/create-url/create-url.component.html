@@ -1,1 +1,43 @@
-<p>create-url works!</p>
+<!-- <div class="container">
+    <h1 class="mt-5">New shortered URL</h1>
+    <form>
+        <div class="form-group">
+            <label for="url">URL</label>
+            <input type="email" class="form-control" id="url" aria-describedby="urlHelp" placeholder="URL" required>
+            <small id="urlHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div> -->
+
+<div class="container">
+    <div [hidden]="showSuccess">
+        <h3 class="mt-5">New shortered URL</h3>
+        <form [formGroup]="urlForm" (ngSubmit)="submitForm()" novalidate>
+            <div class="form-group">
+                <input type="url" formControlName="full_url" class="form-control" placeholder="URL to short..." required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <div [hidden]="!showSuccess">
+        <br>
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Well done!</h4>
+            <p>Your URL was shortened successfully.</p> If you want to test your shortened Url, you can go by clicking on the next link. 
+            <a href="{{shortUrl}}">{{shortUrl}}</a>
+            <hr>
+            <p class="mb-0">
+                <a class="btn btn-success" (click)="refresh($event)">Create another one</a>
+            </p>
+        </div>
+    </div>
+
+    <div [hidden]="!showError">
+        <br>
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Ups! Invalid URL.</h4>
+        </div>
+    </div>
+</div>
