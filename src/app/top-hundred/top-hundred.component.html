@@ -1,0 +1,23 @@
+<div style="margin: 20px;">
+    <h1 class="mt-5">Top 100 most visited URLS</h1>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Short code</th>
+                <th scope="col">Full URL</th>
+                <th scope="col">Visits</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let url of urls; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ url.title }}</td>
+                <td><a href="{{ url.short_url }}">{{ url.short_code }}</a></td>
+                <td>{{ url.full_url }}</td>
+                <td>{{ url.click_count }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
